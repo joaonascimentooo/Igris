@@ -175,9 +175,6 @@ MIT
 ---
 
 **Made with ❤️ para a comunidade fitness**
-  startedAt: Date
-  endedAt?: Date
-  notes?: string
 }
 ```
 
