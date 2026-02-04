@@ -1,307 +1,180 @@
-# Gym Routine App
+# 💪 IGRIS - Seu Assistente de Treino
 
-Plataforma moderna para gerenciar rotinas de academia e acompanhar progresso de treinos.
+[![Next.js](https://img.shields.io/badge/Next.js-16.1.6-black?style=flat-square&logo=next.js)](https://nextjs.org)
+[![React](https://img.shields.io/badge/React-18.2.0-blue?style=flat-square&logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3.0-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![Firebase](https://img.shields.io/badge/Firebase-Realtime-orange?style=flat-square&logo=firebase)](https://firebase.google.com)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.3.0-06b6d4?style=flat-square&logo=tailwindcss)](https://tailwindcss.com)
+
+IGRIS é uma plataforma moderna, intuitiva e poderosa para gerenciar suas rotinas de academia e acompanhar seu progresso fitness com facilidade.
+
+## 🎯 Funcionalidades
+
+- ✅ **Autenticação Segura** - Login com Email/Password e Google OAuth
+- ✅ **Gerenciamento de Rotinas** - Crie e organize suas rotinas de treino
+- ✅ **Acompanhamento de Progresso** - Monitore seu desempenho ao longo do tempo
+- ✅ **Interface Responsiva** - Funciona perfeitamente em desktop, tablet e mobile
+- ✅ **Design Moderno** - UI/UX em gradiente com tema escuro elegante
+- ✅ **Real-time Sync** - Sincronização em tempo real com Firebase
 
 ## 🚀 Tech Stack
 
-- **Frontend**: Next.js 16.1.6 (App Router) + React 18.2.0
-- **Language**: TypeScript 5.3.0
-- **State Management**: Zustand 4.4.0
-- **Styling**: Tailwind CSS 3.3.0
-- **Backend**: Firebase (Firestore, Auth, Storage)
-- **Build**: Turbopack
+| Layer | Tecnologia |
+|-------|-----------|
+| **Frontend** | Next.js 16.1.6 (App Router + Turbopack) |
+| **Language** | TypeScript 5.3.0 |
+| **Runtime** | React 18.2.0 |
+| **State** | Zustand 4.4.0 |
+| **Styling** | Tailwind CSS 3.3.0 |
+| **Backend** | Firebase (Auth, Firestore) |
+| **Testing** | Jest |
 
 ## 📋 Pré-requisitos
 
-- Node.js 18+
-- npm ou yarn
-- Conta Firebase
+- **Node.js** 18.0.0 ou superior
+- **npm** 9.0.0 ou superior
+- **Conta Firebase** (gratuita em [firebase.google.com](https://firebase.google.com))
 
 ## ⚡ Quick Start
 
-### 1. Clonar Repositório
+### 1️⃣ Clonar Repositório
 
 ```bash
-git clone <seu-repo>
-cd gym-routine-app
+git clone https://github.com/seu-usuario/igris.git
+cd igris
 ```
 
-### 2. Instalar Dependências
+### 2️⃣ Instalar Dependências
 
 ```bash
 npm install
 ```
 
-### 3. Configurar Firebase
+### 3️⃣ Configurar Firebase
 
-1. Crie um projeto em [Firebase Console](https://console.firebase.google.com/)
-2. Ative **Email/Password** Authentication
-3. Crie um **Firestore Database** em test mode
-4. Copie as credenciais
+1. Acesse [Firebase Console](https://console.firebase.google.com)
+2. Crie um novo projeto
+3. Ative **Authentication** → **Email/Password**
+4. Ative **Authentication** → **Google** (opcional)
+5. Crie **Firestore Database** em modo teste
+6. Copie as credenciais da configuração do projeto
 
-### 4. Variáveis de Ambiente
+### 4️⃣ Variáveis de Ambiente
 
 Crie `.env.local`:
 
 ```env
-NEXT_PUBLIC_FIREBASE_API_KEY=seu_api_key
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=seu_auth_domain
+NEXT_PUBLIC_FIREBASE_API_KEY=sua_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=seu_auth_domain.firebaseapp.com
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=seu_project_id
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=seu_storage_bucket
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=seu_storage_bucket.appspot.com
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=seu_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=seu_app_id
 ```
 
-### 5. Iniciar Desenvolvimento
+### 5️⃣ Executar Projeto
 
 ```bash
 npm run dev
 ```
 
-Acesse: http://localhost:3000
+Abra [http://localhost:3000](http://localhost:3000) 🎉
 
 ## 📁 Estrutura do Projeto
 
 ```
 src/
-├── app/                 # App Router (Next.js)
-│   ├── layout.tsx       # Root layout
-│   ├── page.tsx         # Home
-│   ├── login/           # Login page
-│   ├── register/        # Register page
-│   ├── dashboard/       # Dashboard
-│   └── routines/        # Routines management
-├── components/          # React components
-│   ├── Layout/          # Layout components
-│   └── Common/          # Reusable components
+├── app/                 # Páginas Next.js (App Router)
+│   ├── login/           # Página de login
+│   ├── register/        # Página de registro
+│   ├── dashboard/       # Dashboard principal
+│   └── routines/        # Gerenciador de rotinas
+├── components/          # Componentes reutilizáveis
+│   ├── Common/          # Input, Button, etc
+│   └── Layout/          # Header, Sidebar, Layout
 ├── hooks/               # Custom hooks
-├── lib/                 # Utilities & services
-│   ├── firebase/        # Firebase config & services
-│   └── types/           # TypeScript types
-├── store/               # Zustand stores
-└── styles/              # Global styles
+│   ├── useAuth.ts       # Gerenciamento de autenticação
+│   └── useRoutines.ts   # Gerenciamento de rotinas
+├── lib/                 # Serviços e configurações
+│   └── firebase/        # Serviços Firebase
+├── store/               # Zustand State Management
+├── types/               # TypeScript types
+└── utils/               # Funções auxiliares
+```
+
+## 🏗️ Arquitetura
+
+### Camadas
+
+1. **Presentation** - Componentes React tipados
+2. **Application** - Custom hooks com lógica
+3. **Domain** - Serviços isolados
+4. **Infrastructure** - Firebase config e APIs
+
+### Design Patterns
+
+- Service Pattern para isolamento de lógica
+- Custom Hooks para reutilização
+- Zustand para state global
+- TypeScript em 100% do código
+
+## 🔐 Autenticação
+
+### Email/Password
+- Registro com validação
+- Login seguro
+- Persistência de sessão
+- Tratamento de erros
+
+### Google OAuth
+- Login/Registro com um clique
+- Sincronização automática
+- Perfil de usuário automático
+
+## 🚀 Scripts Disponíveis
+
+```bash
+npm run dev          # Inicia servidor de desenvolvimento
+npm run build        # Build para produção
+npm start            # Inicia servidor de produção
+npm run lint         # Executa ESLint
 ```
 
 ## 🔒 Segurança
 
-- Firebase Security Rules configuradas para acesso user-only
+- Firebase Security Rules configuradas
 - Credenciais em `.env.local` (não commitadas)
-- Autenticação via Email/Password
+- `.gitignore` configurado corretamente
+- Autenticação obrigatória em rotas protegidas
 
-## 🧪 Build & Deploy
+## 📊 Funcionalidades em Desenvolvimento
 
-```bash
-# Build para produção
-npm run build
+- [ ] Histórico de treinos
+- [ ] Gráficos de progresso
+- [ ] Personal records
+- [ ] Apple Sign-In
+- [ ] Notificações push
+- [ ] Modo offline
 
-# Verificar erros
-npm run lint
+## 📝 Variáveis de Ambiente
 
-# Deploy para Firebase Hosting
-firebase deploy
-```
-
-## 📚 Documentação
-
-Para detalhes técnicos, veja:
-- **Arquitetura**: Estrutura 4-camadas (Presentation, Application, Domain, Infrastructure)
-- **Padrões**: Service Pattern, Repository Pattern, Custom Hooks
-- **Estado**: Zustand com persistência localStorage
+Veja `.env.example` para um template completo
 
 ## 🤝 Contribuindo
 
-1. Crie uma branch (`git checkout -b feature/sua-feature`)
-2. Commit suas mudanças (`git commit -m 'Add sua-feature'`)
-3. Push para a branch (`git push origin feature/sua-feature`)
-4. Abra um Pull Request
+1. Fork o projeto
+2. Crie uma branch (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -m 'Add nova-feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
 
-## 📝 Licença
+## 📄 Licença
 
 MIT
 
 ---
 
-**Made with ❤️**
-│   ├── lib/          # Serviços (Firebase)
-│   ├── store/        # Zustand State Management
-│   ├── types/        # TypeScript types
-│   └── utils/        # Funções utilitárias
-├── public/           # Assets estáticos
-└── [config files]    # Configurações
-```
-
-## 🏗️ Arquitetura Profissional
-
-### Camadas
-
-1. **Presentation Layer** (Componentes)
-   - Componentes presentacionais puros
-   - Reutilizáveis e bem testáveis
-   - Props tipadas com TypeScript
-
-2. **Application Layer** (Hooks)
-   - Encapsulam lógica de negócio
-   - Comunicam com Services
-   - Gerenciam state com Zustand
-
-3. **Domain Layer** (Services)
-   - Lógica de negócio isolada
-   - Comunicação com Firebase
-   - Tratamento centralizado de erros
-
-4. **Infrastructure Layer** (Firebase)
-   - Autenticação (Auth)
-   - Banco de dados (Firestore)
-   - Storage de arquivos
-
-### Design Patterns Utilizados
-
-- **Service Pattern:** Isolamento de lógica
-- **Custom Hooks:** Reutilização de lógica React
-- **State Management:** Zustand para state global
-- **Typed Components:** TypeScript em tudo
-
-## 🔧 Instalação
-
-```bash
-# Clone o repositório
-git clone [seu-repo]
-cd gym-routine-app
-
-# Instale dependências
-npm install
-
-# Configure variáveis de ambiente
-cp .env.example .env.local
-# Edite .env.local com suas credenciais Firebase
-```
-
-## 📋 Variáveis de Ambiente
-
-Crie `.env.local` na raiz:
-
-```env
-NEXT_PUBLIC_FIREBASE_API_KEY=
-NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
-NEXT_PUBLIC_FIREBASE_PROJECT_ID=
-NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
-NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
-NEXT_PUBLIC_FIREBASE_APP_ID=
-```
-
-## 🚀 Desenvolvimento
-
-```bash
-# Inicie servidor de desenvolvimento
-npm run dev
-
-# Acesse http://localhost:3000
-
-# Linting e formatação
-npm run lint
-npm run format
-
-# Type checking
-npm run type-check
-```
-
-## 🏗️ Build e Deploy
-
-```bash
-# Build para produção
-npm run build
-
-# Inicie servidor de produção
-npm start
-
-# Deploy no Firebase Hosting
-firebase deploy
-```
-
-## 📚 Fitur Principais
-
-### Autenticação
-- ✅ Registro de novo usuário
-- ✅ Login com email/senha
-- ✅ Logout
-- ✅ Persistência de sessão
-
-### Rotinas
-- ✅ Criar rotinas personalizadas
-- ✅ Adicionar exercícios
-- ✅ Editar rotinas
-- ✅ Deletar rotinas
-- ✅ Ativar/desativar rotinas
-
-### Treino
-- ✅ Iniciar treino com rotina
-- ✅ Registrar séries e repetições
-- ✅ Registrar peso levantado
-- ✅ Timer entre séries
-- ✅ Notas de treino
-
-### Progresso
-- ✅ Histórico de treinos
-- ✅ Gráficos de progresso
-- ✅ Personal records (máximo peso levantado)
-- ✅ Estatísticas e métricas
-
-## 🔐 Segurança
-
-### Firestore Rules
-
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{userId} {
-      allow read, write: if request.auth.uid == userId;
-    }
-    match /routines/{routineId} {
-      allow read, write: if request.auth.uid == resource.data.userId;
-    }
-    match /workouts/{workoutId} {
-      allow read, write: if request.auth.uid == resource.data.userId;
-    }
-  }
-}
-```
-
-## 📊 Model de Dados
-
-### User
-```typescript
-{
-  id: string
-  email: string
-  name: string
-  photoURL?: string
-  createdAt: Date
-  updatedAt: Date
-}
-```
-
-### Routine
-```typescript
-{
-  id: string
-  userId: string
-  name: string
-  description: string
-  exercises: Exercise[]
-  isActive: boolean
-  createdAt: Date
-  updatedAt: Date
-}
-```
-
-### Workout
-```typescript
-{
-  id: string
-  userId: string
-  routineId: string
-  exercises: WorkoutExercise[]
+**Made with ❤️ para a comunidade fitness**
   startedAt: Date
   endedAt?: Date
   notes?: string
@@ -325,31 +198,3 @@ npm test
 # Coverage
 npm test -- --coverage
 ```
-
-## 📦 Dependencies Principais
-
-```json
-{
-  "next": "^14.0.0",
-  "react": "^18.2.0",
-  "firebase": "^10.7.0",
-  "zustand": "^4.4.0",
-  "tailwindcss": "^3.3.0"
-}
-```
-
-## 🛠️ Próximos Passos
-
-1. Implementar Cloud Functions para lógica backend
-2. Adicionar real-time sync com Realtime Database
-3. Implementar upload de fotos no Storage
-4. Push notifications com Cloud Messaging
-5. Analytics e tracking de eventos
-
-## 📝 Licença
-
-MIT
-
-## 👨‍💻 Autor
-
-Desenvolvido como projeto profissional com arquitetura escalável.
