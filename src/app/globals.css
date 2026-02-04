@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply bg-dark text-light;
+  @apply bg-slate-900 text-white;
 }
 
 ::-webkit-scrollbar {
@@ -19,9 +19,26 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-900;
+  @apply bg-slate-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded hover:bg-gray-600;
+  @apply bg-cyan-500/50 rounded hover:bg-cyan-500;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.glow-cyan {
+  @apply shadow-lg shadow-cyan-500/50;
+}
+
+.glow-red {
+  @apply shadow-lg shadow-red-600/50;
 }
