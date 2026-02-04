@@ -2,6 +2,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+  OAuthProvider,
   User as FirebaseUser,
   onAuthStateChanged,
 } from 'firebase/auth';
@@ -42,6 +45,38 @@ export class AuthService {
     try {
       const auth = getFirebaseAuth();
       await signOut(auth);
+    } catch (error) {
+      throw this.handleAuthError(error);
+    }
+  }
+
+  /**
+   * Login com Google
+   */
+  async loginWithGoogle(): Promise<FirebaseUser> {
+    try {
+      const auth = getFirebaseAuth();
+      const provider = new GoogleAuthProvider();
+      provider.addScope('profile');
+      provider.addScope('email');
+      const result = await signInWithPopup(auth, provider);
+      return result.user;
+    } catch (error) {
+      throw this.handleAuthError(error);
+    }
+  }
+
+  /**
+   * Login com Apple
+   */
+  async loginWithApple(): Promise<FirebaseUser> {
+    try {
+      const auth = getFirebaseAuth();
+      const provider = new OAuthProvider('apple.com');
+      provider.addScope('email');
+      provider.addScope('name');
+      const result = await signInWithPopup(auth, provider);
+      return result.user;
     } catch (error) {
       throw this.handleAuthError(error);
     }

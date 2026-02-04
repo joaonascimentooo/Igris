@@ -11,7 +11,7 @@ import { Input, Button } from '@/components/Common';
 
 const RegisterPage: React.FC = () => {
   const router = useRouter();
-  const { register, isLoading, error } = useAuth();
+  const { register, loginWithGoogle, loginWithApple, isLoading, error } = useAuth();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -56,6 +56,22 @@ const RegisterPage: React.FC = () => {
     }
   };
 
+  const handleGoogleRegister = async () => {
+    try {
+      await loginWithGoogle();
+      router.push('/dashboard');
+    } catch {
+    }
+  };
+
+  const handleAppleRegister = async () => {
+    try {
+      await loginWithApple();
+      router.push('/dashboard');
+    } catch {
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 px-4 py-8 overflow-hidden relative">
       {/* Efeito de fundo animado */}
@@ -81,13 +97,23 @@ const RegisterPage: React.FC = () => {
 
           {/* Botões Sociais */}
           <div className="space-y-3 mb-8">
-            <button className="w-full bg-white/10 hover:bg-white/20 border border-white/20 text-white py-3 rounded-xl font-semibold transition duration-200 flex items-center justify-center gap-3 hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20">
+            <button 
+              type="button"
+              onClick={handleGoogleRegister}
+              disabled={isLoading}
+              className="w-full bg-white/10 hover:bg-white/20 border border-white/20 text-white py-3 rounded-xl font-semibold transition duration-200 flex items-center justify-center gap-3 hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               <span className="text-xl">🔵</span>
               <span>Registrar com Google</span>
             </button>
-            <button className="w-full bg-white/10 hover:bg-white/20 border border-white/20 text-white py-3 rounded-xl font-semibold transition duration-200 flex items-center justify-center gap-3 hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20">
+            <button 
+              type="button"
+              disabled={true}
+              className="w-full bg-white/10 border border-white/20 text-gray-500 py-3 rounded-xl font-semibold transition duration-200 flex items-center justify-center gap-3 opacity-50 cursor-not-allowed"
+              title="Em breve"
+            >
               <span className="text-xl">🍎</span>
-              <span>Registrar com Apple</span>
+              <span>Registrar com Apple (em breve)</span>
             </button>
           </div>
 

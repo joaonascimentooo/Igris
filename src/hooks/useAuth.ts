@@ -18,9 +18,7 @@ const isFirebaseConfigured = () => {
 export const useAuth = () => {
   const { user, isLoading, error, setUser, setIsLoading, setError, reset } = useAuthStore();
 
-  /**
-   * Inicializa listener de autenticação
-   */
+ 
   useEffect(() => {
     if (!isFirebaseConfigured()) {
       setError('Firebase não está configurado. Veja QUICKSTART.md para setup.');
@@ -120,6 +118,42 @@ export const useAuth = () => {
     }
   };
 
+  const loginWithGoogle = async () => {
+    if (!isFirebaseConfigured()) {
+      throw new Error('Firebase não está configurado');
+    }
+
+    setIsLoading(true);
+    setError(null);
+    try {
+      await authService.loginWithGoogle();
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Google login failed';
+      setError(message);
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const loginWithApple = async () => {
+    if (!isFirebaseConfigured()) {
+      throw new Error('Firebase não está configurado');
+    }
+
+    setIsLoading(true);
+    setError(null);
+    try {
+      await authService.loginWithApple();
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Apple login failed';
+      setError(message);
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return {
     user,
     isLoading,
@@ -127,6 +161,8 @@ export const useAuth = () => {
     register,
     login,
     logout,
+    loginWithGoogle,
+    loginWithApple,
     isAuthenticated: !!user,
   };
 };

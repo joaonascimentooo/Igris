@@ -11,7 +11,7 @@ import { Input, Button } from '@/components/Common';
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
-  const { login, isLoading, error } = useAuth();
+  const { login, loginWithGoogle, loginWithApple, isLoading, error } = useAuth();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -44,7 +44,22 @@ const LoginPage: React.FC = () => {
       await login(formData.email, formData.password);
       router.push('/dashboard');
     } catch {
-      // Erro já está no state
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await loginWithGoogle();
+      router.push('/dashboard');
+    } catch {
+    }
+  };
+
+  const handleAppleLogin = async () => {
+    try {
+      await loginWithApple();
+      router.push('/dashboard');
+    } catch {
     }
   };
 
@@ -89,13 +104,23 @@ const LoginPage: React.FC = () => {
 
           {/* Botões Sociais */}
           <div className="space-y-3 mb-8">
-            <button className="w-full bg-white/10 hover:bg-white/20 border border-white/20 text-white py-3 rounded-xl font-semibold transition duration-200 flex items-center justify-center gap-3 hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20">
+            <button 
+              type="button"
+              onClick={handleGoogleLogin}
+              disabled={isLoading}
+              className="w-full bg-white/10 hover:bg-white/20 border border-white/20 text-white py-3 rounded-xl font-semibold transition duration-200 flex items-center justify-center gap-3 hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
               <span className="text-xl">🔵</span>
               <span>Continuar com Google</span>
             </button>
-            <button className="w-full bg-white/10 hover:bg-white/20 border border-white/20 text-white py-3 rounded-xl font-semibold transition duration-200 flex items-center justify-center gap-3 hover:border-cyan-400/50 hover:shadow-lg hover:shadow-cyan-500/20">
+            <button 
+              type="button"
+              disabled={true}
+              className="w-full bg-white/10 border border-white/20 text-gray-500 py-3 rounded-xl font-semibold transition duration-200 flex items-center justify-center gap-3 opacity-50 cursor-not-allowed"
+              title="Em breve"
+            >
               <span className="text-xl">🍎</span>
-              <span>Continuar com Apple</span>
+              <span>Continuar com Apple (em breve)</span>
             </button>
           </div>
 
