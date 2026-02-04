@@ -19,6 +19,7 @@ const LoginPage: React.FC = () => {
   });
 
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -122,14 +123,23 @@ const LoginPage: React.FC = () => {
             </div>
 
             <div>
-              <input
-                type="password"
-                name="password"
-                placeholder="Senha"
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-500/30 transition duration-200 backdrop-blur-sm"
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  placeholder="Senha"
+                  value={formData.password}
+                  onChange={handleChange}
+                  className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 pr-12 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400/50 focus:ring-2 focus:ring-cyan-500/30 transition duration-200 backdrop-blur-sm"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-cyan-400 transition"
+                >
+                  {showPassword ? '👁️' : '👁️‍🗨️'}
+                </button>
+              </div>
               {validationErrors.password && (
                 <p className="text-red-400 text-xs mt-2 font-semibold">{validationErrors.password}</p>
               )}
