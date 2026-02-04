@@ -1,0 +1,83 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# Environment variables
+.env.local
+.env.*.local
+.env
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# Testing
+.nyc_output/
+coverage/
+*.lcov
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Documentation (keep only README)
+ARCHITECTURE.md
+DEVELOPMENT.md
+SECURITY.md
+FIREBASE_SECURITY.md
+DEPLOYMENT.md
+QUICKSTART.md
+FIREBASE_SETUP.md
+
+# Local development
+.cache/
+temp/
+tmp/
+
+# Firebase
+.firebaserc
+firebase-debug.log
+
+# Turbopack
+.turbo/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn
+.yarn/cache
+.yarn/install-state.gz
