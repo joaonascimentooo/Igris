@@ -5,6 +5,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/hooks';
 
 interface HeaderProps {
@@ -12,7 +13,13 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
+  const router = useRouter();
   const { user, logout } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+    router.push('/login');
+  };
 
   return (
     <header className="bg-secondary border-b border-gray-700 px-lg py-md flex items-center justify-between">
@@ -31,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
           <>
             <span className="text-light">{user.name}</span>
             <button
-              onClick={() => logout()}
+              onClick={handleLogout}
               className="px-md py-xs bg-primary text-dark rounded hover:bg-orange-500 transition-colors"
             >
               Logout
