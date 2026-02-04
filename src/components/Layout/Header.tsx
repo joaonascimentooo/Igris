@@ -22,24 +22,26 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
   };
 
   return (
-    <header className="bg-secondary border-b border-gray-700 px-lg py-md flex items-center justify-between">
-      <div className="flex items-center gap-md">
+    <header className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 border-b border-cyan-500/30 px-8 py-4 flex items-center justify-between relative z-50 backdrop-blur-xl">
+      <div className="flex items-center gap-4">
         <button
           onClick={onToggleSidebar}
-          className="text-light hover:text-primary transition-colors"
+          className="text-cyan-400 hover:text-cyan-300 transition-colors text-2xl"
         >
           ☰
         </button>
-        <h1 className="text-2xl font-bold text-primary">💪 Gym Routine</h1>
+        <h1 className="text-3xl font-black text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text inline-block">
+          igris
+        </h1>
       </div>
 
-      <div className="flex items-center gap-md">
+      <div className="flex items-center gap-6">
         {user && (
           <>
-            <span className="text-light">{user.name}</span>
+            <span className="text-gray-300 font-semibold">{user.name}</span>
             <button
               onClick={handleLogout}
-              className="px-md py-xs bg-primary text-dark rounded hover:bg-orange-500 transition-colors"
+              className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-cyan-400 text-slate-900 font-bold rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition duration-200 hover:scale-105 active:scale-95"
             >
               Logout
             </button>

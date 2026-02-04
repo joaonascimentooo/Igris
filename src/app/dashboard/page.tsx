@@ -21,63 +21,63 @@ const DashboardPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="space-y-lg">
+      <div className="space-y-8">
         <div>
-          <h1 className="text-3xl font-bold text-primary mb-md">
+          <h1 className="text-4xl font-black text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text mb-4 inline-block">
             Bem-vindo, {user?.name}! 👋
           </h1>
-          <p className="text-light text-lg">Vamos treinar hoje?</p>
+          <p className="text-gray-300 text-lg">Vamos treinar hoje?</p>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {stats.map((stat) => (
-            <Card key={stat.label}>
+            <div key={stat.label} className="bg-slate-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-cyan-500/30 shadow-lg hover:border-cyan-400/50 transition duration-200">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-light text-sm opacity-75">{stat.label}</p>
-                  <p className="text-2xl font-bold text-primary mt-xs">{stat.value}</p>
+                  <p className="text-gray-400 text-sm">{stat.label}</p>
+                  <p className="text-3xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text mt-2">{stat.value}</p>
                 </div>
                 <span className="text-4xl">{stat.icon}</span>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
 
         {/* Quick Actions */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
-          <Card className="hover:border-primary cursor-pointer">
-            <h3 className="text-xl font-bold text-primary mb-md">🏋️ Iniciar Treino</h3>
-            <p className="text-light mb-md">Comece um treino com sua rotina atual</p>
-            <button className="bg-primary text-dark px-lg py-sm rounded font-semibold hover:bg-orange-500 transition-colors">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-slate-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-cyan-500/30 shadow-lg hover:border-cyan-400/50 transition duration-200 cursor-pointer hover:scale-105">
+            <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text mb-3">🏋️ Iniciar Treino</h3>
+            <p className="text-gray-300 mb-4">Comece um treino com sua rotina atual</p>
+            <button className="w-full bg-gradient-to-r from-cyan-500 to-cyan-400 text-slate-900 font-bold py-2 rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition duration-200">
               Treinar Agora
             </button>
-          </Card>
+          </div>
 
-          <Card className="hover:border-primary cursor-pointer">
-            <h3 className="text-xl font-bold text-primary mb-md">📋 Minhas Rotinas</h3>
-            <p className="text-light mb-md">Veja e gerencie suas rotinas de treino</p>
-            <button className="bg-primary text-dark px-lg py-sm rounded font-semibold hover:bg-orange-500 transition-colors">
+          <div className="bg-slate-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-cyan-500/30 shadow-lg hover:border-cyan-400/50 transition duration-200 cursor-pointer hover:scale-105">
+            <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text mb-3">📋 Minhas Rotinas</h3>
+            <p className="text-gray-300 mb-4">Veja e gerencie suas rotinas de treino</p>
+            <button className="w-full bg-gradient-to-r from-cyan-500 to-cyan-400 text-slate-900 font-bold py-2 rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition duration-200">
               Ver Rotinas
             </button>
-          </Card>
+          </div>
         </div>
 
         {/* Recent Activity */}
-        <Card>
-          <h3 className="text-xl font-bold text-primary mb-md">📊 Atividade Recente</h3>
-          <div className="space-y-md">
+        <div className="bg-slate-900/60 backdrop-blur-2xl rounded-2xl p-6 border border-cyan-500/30 shadow-lg">
+          <h3 className="text-xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text mb-6">📊 Atividade Recente</h3>
+          <div className="space-y-4">
             {[1, 2, 3].map((_, idx) => (
-              <div key={idx} className="flex items-center justify-between pb-md border-b border-gray-700 last:border-0">
+              <div key={idx} className="flex items-center justify-between pb-4 border-b border-cyan-500/20 last:border-0">
                 <div>
-                  <p className="text-light font-semibold">Treino Completo</p>
-                  <p className="text-sm text-light opacity-50">Há 2 dias</p>
+                  <p className="text-gray-200 font-semibold">Treino Completo</p>
+                  <p className="text-sm text-gray-400">Há 2 dias</p>
                 </div>
-                <span className="text-primary font-bold">+250 XP</span>
+                <span className="text-cyan-400 font-bold">+250 XP</span>
               </div>
             ))}
           </div>
-        </Card>
+        </div>
       </div>
     </Layout>
   );
