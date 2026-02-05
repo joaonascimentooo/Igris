@@ -90,3 +90,54 @@ export type ApiError = {
   message: string;
   details?: Record<string, unknown>;
 };
+
+// ===== SISTEMA DE RPG =====
+
+export interface Character {
+  id: string;
+  userId: string;
+  name: string;
+  level: number;
+  experience: number;
+  totalExperience: number;
+  attributes: CharacterAttributes;
+  skills: CharacterSkills;
+  stats: CharacterStats;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface CharacterAttributes {
+  strength: number; // Força (baseado em treinos de força)
+  endurance: number; // Resistência (baseado em cardio)
+  agility: number; // Agilidade (baseado em treinos rápidos)
+  wisdom: number; // Sabedoria (consistência e conhecimento)
+  vitality: number; // Vitalidade (recuperação e bem-estar)
+}
+
+export interface CharacterSkills {
+  powerlifting: number; // Levantamento de peso
+  cardio: number; // Resistência cardiovascular
+  flexibility: number; // Flexibilidade
+  recovery: number; // Recuperação
+  consistency: number; // Consistência
+}
+
+export interface CharacterStats {
+  totalWorkouts: number;
+  totalExercises: number;
+  totalWeight: number;
+  streak: number;
+  achievements: Achievement[];
+  nextLevelExp: number;
+}
+
+export interface Achievement {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  unlockedAt: Date;
+  rarity: 'common' | 'rare' | 'epic' | 'legendary';
+}
+
