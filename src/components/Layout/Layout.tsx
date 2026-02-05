@@ -20,7 +20,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Sidebar isOpen={sidebarOpen} />
       <div className="flex flex-col flex-1 relative z-10">
         <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="flex-1 overflow-auto p-8">
+        <main className="flex-1 overflow-auto p-6">
           {children}
         </main>
       </div>

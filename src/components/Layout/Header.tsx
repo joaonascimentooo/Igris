@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
   };
 
   return (
-    <header className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 border-b border-cyan-500/30 px-8 py-4 flex items-center justify-between relative z-50 backdrop-blur-xl">
+    <header className="bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 border-b border-cyan-500/30 px-4 py-3 flex items-center justify-between relative z-50 backdrop-blur-xl">
       <div className="flex items-center gap-4">
         <button
           onClick={onToggleSidebar}
@@ -41,19 +41,19 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
           <>
             <button
               onClick={() => router.push('/profile')}
-              className="flex items-center gap-3 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600/20 to-purple-500/10 border border-purple-500/30 hover:border-purple-400/60 hover:from-purple-600/40 hover:to-purple-500/20 text-gray-200 hover:text-cyan-300 font-semibold transition-all duration-200 cursor-pointer group"
+              className="flex items-center gap-2 px-3 py-1.5 rounded text-xs bg-gradient-to-r from-purple-600/20 to-purple-500/10 border border-purple-500/30 hover:border-purple-400/60 hover:from-purple-600/40 hover:to-purple-500/20 text-gray-200 hover:text-cyan-300 font-semibold transition-all duration-200 cursor-pointer group whitespace-nowrap"
               title="Ir para perfil"
             >
-              <User size={18} className="text-purple-400 group-hover:text-cyan-400 transition-colors" />
-              <span className="group-hover:translate-x-0.5 transition-transform">{user.name}</span>
+              <User size={16} className="text-purple-400 group-hover:text-cyan-400 transition-colors flex-shrink-0" />
+              <span className="group-hover:translate-x-0.5 transition-transform truncate">{user.name}</span>
             </button>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600/20 to-purple-500/10 border border-purple-500/30 hover:border-purple-400/60 hover:from-purple-600/40 hover:to-purple-500/20 text-gray-200 hover:text-cyan-300 font-semibold transition-all duration-200 cursor-pointer group"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded text-xs bg-gradient-to-r from-purple-600/20 to-purple-500/10 border border-purple-500/30 hover:border-purple-400/60 hover:from-purple-600/40 hover:to-purple-500/20 text-gray-200 hover:text-cyan-300 font-semibold transition-all duration-200 cursor-pointer group"
               title="Sair da aplicação"
             >
-              <LogOut size={18} className="text-purple-400 group-hover:text-cyan-400 transition-colors" />
-              Logout
+              <LogOut size={14} className="text-purple-400 group-hover:text-cyan-400 transition-colors flex-shrink-0" />
+              <span className="hidden sm:inline">Logout</span>
             </button>
           </>
         )}
