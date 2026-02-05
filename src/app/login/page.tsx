@@ -92,9 +92,8 @@ const LoginPage: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-6xl font-black text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text mb-2">
-            igris
+            IGRIS
           </h1>
-          <p className="text-gray-300 text-xs tracking-widest font-semibold">SEU ASSISTENTE DE TREINO</p>
         </div>
 
         {/* Card Principal */}
@@ -213,7 +212,7 @@ const LoginPage: React.FC = () => {
         </div>
 
         {/* Rodapé */}
-        <p className="text-center text-gray-600 text-xs mt-8 font-medium">© 2026 igris. Todos os direitos reservados.</p>
+        <p className="text-center text-gray-600 text-xs mt-8 font-medium">© 2026 IGRIS. Todos os direitos reservados.</p>
       </div>
     </div>
   );

@@ -100,15 +100,14 @@ const RegisterPage: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="inline-block text-6xl font-black text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text mb-2">
-            igris
+            IGRIS
           </h1>
-          <p className="text-gray-300 text-xs tracking-widest font-semibold">SEU ASSISTENTE DE TREINO</p>
         </div>
 
         {/* Card Principal */}
         <div className="bg-slate-900/60 backdrop-blur-2xl rounded-3xl p-8 border border-cyan-500/30 shadow-2xl">
           <h2 className="text-3xl font-bold text-white mb-2">Criar Conta</h2>
-          <p className="text-gray-400 text-sm mb-8">Comece sua jornada de fitness com igris</p>
+          <p className="text-gray-400 text-sm mb-8">Comece sua jornada de fitness com IGRIS</p>
 
           {/* Botões Sociais */}
           <div className="space-y-3 mb-8">
@@ -249,7 +248,7 @@ const RegisterPage: React.FC = () => {
         </div>
 
         {/* Rodapé */}
-        <p className="text-center text-gray-600 text-xs mt-8 font-medium">© 2026 igris. Todos os direitos reservados.</p>
+        <p className="text-center text-gray-600 text-xs mt-8 font-medium">© 2026 IGRIS. Todos os direitos reservados.</p>
       </div>
     </div>
   );

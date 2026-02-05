@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
           ☰
         </button>
         <h1 className="text-3xl font-black text-transparent bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text inline-block">
-          igris
+          IGRIS
         </h1>
       </div>
 

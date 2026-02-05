@@ -7,8 +7,11 @@ import type React from 'react';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Gym Routine - Monitor Your Workouts',
+  title: 'IGRIS',
   description: 'Platform for managing gym routines and tracking your fitness progress',
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export const viewport = {
