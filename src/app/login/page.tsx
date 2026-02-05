@@ -57,7 +57,7 @@ const LoginPage: React.FC = () => {
 
     try {
       await login(formData.email, formData.password);
-      router.push('/dashboard');
+      router.push('/profile');
     } catch {
     }
   };
@@ -65,7 +65,7 @@ const LoginPage: React.FC = () => {
   const handleGoogleLogin = async () => {
     try {
       await loginWithGoogle();
-      router.push('/dashboard');
+      router.push('/profile');
     } catch {
     }
   };
@@ -73,7 +73,7 @@ const LoginPage: React.FC = () => {
   const handleAppleLogin = async () => {
     try {
       await loginWithApple();
-      router.push('/dashboard');
+      router.push('/profile');
     } catch {
     }
   };
